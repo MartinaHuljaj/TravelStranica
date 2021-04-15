@@ -31,10 +31,10 @@ function Fotter() {
                 <div className='social-media-wrap'>
                     <div className='footer-logo'>
                         <Link className='social-logo'>
-                            CRO <i className='fab fa-typo3'/>
+                            CROKI <i className='fab fa-typo3'/>
                         </Link>
                     </div>
-                    <small class='website-rights'>TRVL © 2020</small>
+                    <small class='website-rights'>CRO © 2020</small>
                     <div className='social-icons'>
                         <Link class='social-icon-link facebook' to='/' target='_blank' aria-label='Facebook'>
                              <i class='fab fa-facebook-f' />

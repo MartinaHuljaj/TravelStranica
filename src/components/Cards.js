@@ -1,52 +1,34 @@
 import React from 'react'
 import CardItem from './CardItem'
 import './Cards.css'
-import image1 from '../images/img-9.jpg'
-import image2 from '../images/img-2.jpg'
-import image3 from '../images/img-3.jpg'
-import image4 from '../images/img-4.jpg'
-import image5 from '../images/img-5.jpg'
+import {blogData} from '../json/clanci'
+
+
+import {Link} from 'react-router-dom'
 
 
 function Cards() {
+    
     return (
         <div className='cards'>
           <h1>Check out this EPIC destinations!</h1>  
           <div className='cards__container'>
             <div className='cards__wrapper'>
                 <ul className='cards__items'>
-                    <CardItem
-                        src={image1}
-                        text='Explore the hidden waterfall'
-                        label='Adventure'
-                        path='/services'
-                    />
-                    <CardItem
-                        src={image2}
-                        text='Travel through islands od Bali in a Private Cruise'
-                        label='Luxury'
-                        path='/services'
-                    />
-                </ul>
-                <ul className='cards__items'>
-                    <CardItem
-                        src={image3}
-                        text='Sail through the Atlantic'
-                        label='Adventure'
-                        path='/services'
-                    />
-                    <CardItem
-                        src={image4}
-                        text='Play football on top of the Himalayan Mountains'
-                        label='Adventure'
-                        path='/services'
-                    />
-                                        <CardItem
-                        src={image5}
-                        text='Top rated hotels in 2020'
-                        label='Luxury'
-                        path='/services'
-                    />
+                    {blogData.map((data, key)=>{
+                        key=data.id
+                        return(
+                        <li className='cards__item'>
+                            <Link className='cards__item__link' to={`/blog/${data.id}`}>
+                            <figure className='cards__item__pic-wrap' data-category={data.label}>
+                                <img src={data.src} alt='travel image' className='cards__item__img'/>
+                            </figure> 
+                            <div className='cards__item__info'>
+                                <h5 className='cards__item__text'>{data.text}</h5>
+                            </div>
+                            </Link>
+                        </li>
+                    )})}
                 </ul>
             </div>  
           </div>
