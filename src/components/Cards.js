@@ -1,9 +1,6 @@
 import React from 'react'
-import CardItem from './CardItem'
 import './Cards.css'
 import {blogData} from '../json/clanci'
-
-
 import {Link} from 'react-router-dom'
 
 
