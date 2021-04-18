@@ -9,7 +9,7 @@ import Visit from './components/pages/Visit'
 import Footer from './components/Footer'
 import { blogData } from './json/clanci';
 import Cards from './components/Cards';
-import BlogPost from './components/BlogPost'
+import Post from './components/pages/Post'
 
 function App() {
   return (
@@ -19,9 +19,9 @@ function App() {
       <Switch>
         <Route path='/'exact component={Home} />
         <Route path='/blog' component={Blog}/>
-        <Route path='/destinations' component={Destinations}/>
+        <Route path='/destinations' component={Post}/>
         <Route path='/visit-us' component={Visit}/>
-        <Route path='/blog/:id' component={BlogPost}/>
+        <Route path='/post/:id' component={Post}/>
       </Switch>
       <Footer /> 
     </Router>

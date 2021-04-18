@@ -1,38 +1,33 @@
-import React, {useState, useEffect} from 'react';
-import './Cards.css'
-import { Link, BrowserRouter} from "react-router-dom";
-import { blogData } from '../json/clanci';
+import React, {Component} from 'react';
+import {blogData} from '../json/clanci'
+import '../components/Cards.css'
+import Cards from '../components/Cards'
 
-const BlogPost =({match})=>{
-    const{
-        params: {id},
-    }=match;
-    const [isLoading, setIsLoading]= useState(true)
-    const [data, setData]=useState();
 
-    useEffect(() => {
-            setData(blogData);
-            setIsLoading(false);
-            console.log({data})
-          .catch((error) => console.log(error));
-      }, [id]);
+class BlogPost extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            data:blogData.filter((post)=>post.id==='1')[0] }
+        console.log(this.state.data)
+        console.log(this.props.idCurrent)
+    }
+   
 
-      return(
-          <>
-            
-                <li className='cards__item'>
-                <Link className='cards__item__link' to={`/blog/${data.id}`}>
-                <figure className='cards__item__pic-wrap' data-category={data.label}>
-                    <img src={data.src} alt='travel image' className='cards__item__img'/>
-                </figure> 
-                <div className='cards__item__info'>
-                    <h5 className='cards__item__text'>{data.text}</h5>
-                </div>
-                </Link>
-                </li>
-            
-          </>
-      )
+    componentDidMount(){
+        this.setState(
+            {
+            data:blogData.filter((post)=>post.id===this.props.idCurrent)[0],
+        }
+        )
+        console.log(this.state.data)
+    }
+    
+    render() { 
+        return ( 
+            <h1 className='cards-items-info'>{this.state.data.id}</h1>
+         );
+    }
 }
  
 export default BlogPost;

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Cards.css'
 import {blogData} from '../json/clanci'
 import {Link} from 'react-router-dom'
 
 
 function Cards() {
+    const [idCurrent,setId]= useState('1')
+    console.log(idCurrent)
+
+
     
     return (
         <div className='cards'>
@@ -15,8 +19,8 @@ function Cards() {
                     {blogData.map((data, key)=>{
                         key=data.id
                         return(
-                        <li className='cards__item'>
-                            <Link className='cards__item__link' to={`/blog/${data.id}`}>
+                        <li className='cards__item' >
+                            <Link className='cards__item__link' to={`/post/${data.id}`} onClick={()=>setId(data.id)} >
                             <figure className='cards__item__pic-wrap' data-category={data.label}>
                                 <img src={data.src} alt='travel image' className='cards__item__img'/>
                             </figure> 
@@ -31,6 +35,8 @@ function Cards() {
           </div>
         </div>
     )
+
+    
 }
 
 export default Cards
