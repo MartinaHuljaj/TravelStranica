@@ -9,23 +9,21 @@ class BlogPost extends Component {
         super(props);
         this.state = { 
             data:blogData.filter((post)=>post.id==='1')[0] }
-        console.log(this.state.data)
-        console.log(this.props.idCurrent)
+        console.log('prvo',this.state.data)  
     }
-   
-
-    componentDidMount(){
+   componentDidMount(){
+        console.log('prije',this.state.data)
         this.setState(
             {
             data:blogData.filter((post)=>post.id===this.props.idCurrent)[0],
         }
         )
-        console.log(this.state.data)
-    }
+        console.log('nakon',this.state.data)}
     
     render() { 
+        console.log(this.state.data)
         return ( 
-            <h1 className='cards-items-info'>{this.state.data.id}</h1>
+            <h1 className='cards-items-info'>{window.location.pathname}</h1>
          );
     }
 }

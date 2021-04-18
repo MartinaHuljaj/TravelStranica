@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import './Cards.css'
 import {blogData} from '../json/clanci'
 import {Link} from 'react-router-dom'
+import BlogPost from '../components/BlogPost'
 
 
 function Cards() {
-    const [idCurrent,setId]= useState('1')
-    console.log(idCurrent)
+    const [state,setId]= useState('1')
+    console.log(state.idCurrent)
 
 
     
